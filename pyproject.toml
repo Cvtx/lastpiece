@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lastpiece"
+dynamic = ["version"]
+description = "Finish torrents stuck at 99% by fetching their missing pieces over HTTP"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["bittorrent", "torrent", "qbittorrent", "webseed", "archive.org", "libtorrent"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications :: File Sharing",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+lastpiece = "lastpiece.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "lastpiece.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
